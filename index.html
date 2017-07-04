@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/train.css">
+	<script src="assets/javascript/train.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Train Scheduler</title>
+</head>
+<body>
+<div class="container">
+	<div class="jumbotron">
+		<h1>Any Time is Train Time!</h1>
+		<p>choo Choo. Chee Chee.</p>
+	</div>
+
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Current Train Schedule</h3>
+	  </div>
+	  <div class="panel-body">
+	   <!--dynamtically generate table content-->
+	  	<table class="table" id="traininfo">
+		  <tr>
+		    <th>Train Name</th>
+		   	<th>Destination</th>
+		    <th>Frequency (min)</th>
+		    <th>Next Arrival</th>
+		    <th>Minuts Away</th>
+		  </tr>
+		  <tr>
+		    <td>blah blah</td>
+		    <td>blah blah</td>
+		    <td>2</td>
+		    <td>3</td>
+		    <td>30</td>
+		  </tr>
+	 	</table>
+	  </div>
+	</div>
+
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Add Train</h3>
+	  </div>
+	  <div class="panel-body">
+		   <div class="form-group" >
+		    <label for="TrainName">Train Name</label>
+		    <input type="text" class="form-control" id="TrainNameInput"  placeholder="Enter Train Name">
+		    <br>
+		    <label for="Destination">Destination</label>
+		    <input type="text" class="form-control" id="DestinationInput"  placeholder="Enter Train Destination">
+			<br>
+		    <label for="TrainTime">First Train Time (HH:MM military time)</label>
+		    <input type="time" class="form-control" id="TrainTimeInput"  placeholder="Enter Frist Train Time">
+			<br>
+		    <label for="Frequency">Frequency</label>
+		    <input type="number" class="form-control" id="frequencyInput"  placeholder="Frequency">
+
+		    <br>
+		     <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+		  </div>
+	  </div>
+	</div>
+</div>
+</body>
+</html>

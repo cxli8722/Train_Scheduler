@@ -1,0 +1,22 @@
+body{
+    background: url('../images/train.jpg') no-repeat center center fixed 
+ }
+
+
+
+.header {
+  margin-top: 30px;
+  background: blue;
+  height: 250px;
+  background-color: rgba(0,0,0,0.5);
+  margin-bottom: 30px;
+
+
+ }
+
+ .header p{
+  font-size: 65px;
+  text-align: center;
+  color:white;
+  padding: 65px;
+ }

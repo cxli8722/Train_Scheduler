@@ -10,15 +10,12 @@
   firebase.initializeApp(config);
 
  	var database = firebase.database();
-
 	var TrainName = "";
 	var Destination = "";
 	var Time = "";
 	var Frequency = "";
 
-
-
-
+//event listener 
    $("#submitbtn").on("click", function(event) {
    	 // Don't refresh the page!
      event.preventDefault();
@@ -42,21 +39,36 @@
     
  	});
 	
-   	//
+   	
 	database.ref().on("child_added", function(childSnapshot) {
 
-		var namefb = childSnapshot.val().Name;
+		var namefb = childSnapshot.val().TrainName;
 		var Destinationfb = childSnapshot.val().Destination;
 		var timefb = childSnapshot.val().Time;
 		var frequencyfb= childSnapshot.val().Frequency;
+//console.log to make sure it works 
+		console.log(namefb)
+		console.log(Destinationfb)
+		console.log(timefb)
+		console.log(frequencyfb)
+
+// Time conversion
+		var TimeConversionOne=moment(timefb, "hh:mm");
+		//console.log("conversionONe:  " + TimeConversionOne)
+		var TimeDiff= moment().diff(moment(TimeConversionOne), "minutes");
+		//console.log("timedifferent: " + TimeDiff)
+		var ReminderResult=TimeDiff % frequencyfb;
+		//console.log("reminder: " + ReminderResult)
+		var TrainArrivedInMins= frequencyfb-ReminderResult;
+		//console.log("Minutes till next train " + TrainArrivedInMins)
+		var nextTrainTime = moment().add(TrainArrivedInMins, 'minutes').format("hh:mm");
+		//console.log("next train time: " + nextTrainTime)
+		var FormatedTrainTime=moment(nextTrainTime).format("hh:mm");
+		//console.log("Formated next Train time " + FormatedTrainTime)
 		
-
-
-
-		$("#traininfo").append("<tr><td> " + "</tr></td> " + namefb+ "<tr><td> " + "</tr></td> "+ Destinationfb +
-		 "<tr><td> " + timefb + "</tr></td> "+ "<tr><td> " + frequencyfb + "</tr></td> ");
-
-
+		//append to html 
+		$("#traininfo").append("<tr><td> " + namefb +"</td> " + "<td> " + "</td> "+ Destinationfb +
+		 "<td> " + frequencyfb + "</td> "+ "<td> " + nextTrainTime + "</td> "+ "<td> " + TrainArrivedInMins + "</td> ");
 		
     });
 

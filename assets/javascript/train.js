@@ -23,10 +23,10 @@
       	Destination = $("#DestinationInput").val().trim();
       	Time = $("#TrainTimeInput").val().trim();
       	Frequency = $("#frequencyInput").val().trim();
-     	console.log(TrainName)
-       	console.log(Destination)
-        console.log(Time)
-        console.log(Frequency)
+     	// console.log(TrainName)
+       	// console.log(Destination)
+        // console.log(Time)
+        // console.log(Frequency)
         //pushing data to the firebase without rewriting old data
     	database.ref().push({
         TrainName: TrainName,
@@ -47,10 +47,10 @@
 		var timefb = childSnapshot.val().Time;
 		var frequencyfb= childSnapshot.val().Frequency;
 //console.log to make sure it works 
-		console.log(namefb)
-		console.log(Destinationfb)
-		console.log(timefb)
-		console.log(frequencyfb)
+		// console.log(namefb)
+		// console.log(Destinationfb)
+		// console.log(timefb)
+		// console.log(frequencyfb)
 
 // Time conversion
 		var TimeConversionOne=moment(timefb, "hh:mm");
